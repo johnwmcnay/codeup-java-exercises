@@ -3,32 +3,67 @@ import java.util.Scanner;
 public class ControlFlowExercises {
 
     public static void main(String[] args) {
-        Scanner scanner;
-        String input = "yes";
 
-        while (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("y")) {
+        Scanner scanner = new Scanner(System.in);
+        String input;
 
-            scanner = new Scanner(System.in);
+        do {
+            String letterGrade;
 
-            System.out.print("What number would you like to go up to? ");
-            int num = scanner.nextInt();
+            System.out.print("Please enter a grade: ");
+            int grade = scanner.nextInt();
 
-
-            System.out.println("\nHere is your table!\n");
-            System.out.println(" number | squared | cubed");
-            System.out.println(" ------ | ------- | -----");
-
-            long square, cube;
-
-            for (int i = 1; i <= num; i++) {
-                square = i * i;
-                cube = square * i;
-                System.out.printf(" %d | %d | %d \n", i, square, cube);
+            if (grade > 87) {
+                letterGrade = "A";
+            } else if (grade > 79) {
+                letterGrade = "B";
+            } else if (grade > 66) {
+                letterGrade = "C";
+            } else if (grade > 59) {
+                letterGrade = "D";
+            } else {
+                letterGrade = "F";
             }
+
+            System.out.printf("%d is a grade of %S.\n\n", grade, letterGrade);
             scanner.nextLine();
+
             System.out.print("Would you like to continue? [y,n] ");
+
             input = scanner.nextLine();
-        }
+        } while (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("y"));
+
+
+
+
+
+//exercise 3
+//        Scanner scanner;
+//        String input = "yes";
+//
+//        while (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("y")) {
+//
+//            scanner = new Scanner(System.in);
+//
+//            System.out.print("What number would you like to go up to? ");
+//            int num = scanner.nextInt();
+//
+//
+//            System.out.println("\nHere is your table!\n");
+//            System.out.println(" number | squared | cubed");
+//            System.out.println(" ------ | ------- | -----");
+//
+//            long square, cube;
+//
+//            for (int i = 1; i <= num; i++) {
+//                square = i * i;
+//                cube = square * i;
+//                System.out.printf(" %d | %d | %d \n", i, square, cube);
+//            }
+//            scanner.nextLine();
+//            System.out.print("Would you like to continue? [y,n] ");
+//            input = scanner.nextLine();
+//        }
 
 
 //exercise 2 FizzBuzz
