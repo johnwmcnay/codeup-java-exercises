@@ -1,19 +1,36 @@
 public class ControlFlowExercises {
+
     public static void main(String[] args) {
 
-        int i = 0;
+        for (int i = 1; i <= 100; i++) {
 
-        for (i = 0; i <= 100; i +=2) {
-            System.out.println(i);
+            if (i % 3 == 0) {
+                System.out.print("Fizz");
+                if (i % 5 == 0) {
+                    System.out.print("Buzz");
+                }
+                System.out.print("\n");
+            } else if (i % 5 == 0) {
+                System.out.println("Buzz");
+            } else {
+                System.out.println(i);
+            }
         }
 
-        for (i = 100; i >= -10; i -= 5) {
-            System.out.println(i);
-        }
-
-        for (long y = 2; y < 1000000; y *= y) {
-            System.out.println(y);
-        }
+//exercise 1c
+//        int i = 0;
+//
+//        for (i = 0; i <= 100; i +=2) {
+//            System.out.println(i);
+//        }
+//
+//        for (i = 100; i >= -10; i -= 5) {
+//            System.out.println(i);
+//        }
+//
+//        for (long y = 2; y < 1000000; y *= y) {
+//            System.out.println(y);
+//        }
 
 //exercise 1b
 //        int i = 0;
