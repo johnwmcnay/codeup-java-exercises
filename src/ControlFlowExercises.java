@@ -1,21 +1,51 @@
+import java.util.Scanner;
+
 public class ControlFlowExercises {
 
     public static void main(String[] args) {
+        Scanner scanner;
+        String input = "yes";
 
-        for (int i = 1; i <= 100; i++) {
+        while (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("y")) {
 
-            if (i % 3 == 0) {
-                System.out.print("Fizz");
-                if (i % 5 == 0) {
-                    System.out.print("Buzz");
-                }
-                System.out.print("\n");
-            } else if (i % 5 == 0) {
-                System.out.println("Buzz");
-            } else {
-                System.out.println(i);
+            scanner = new Scanner(System.in);
+
+            System.out.print("What number would you like to go up to? ");
+            int num = scanner.nextInt();
+
+
+            System.out.println("\nHere is your table!\n");
+            System.out.println(" number | squared | cubed");
+            System.out.println(" ------ | ------- | -----");
+
+            long square, cube;
+
+            for (int i = 1; i <= num; i++) {
+                square = i * i;
+                cube = square * i;
+                System.out.printf(" %d | %d | %d \n", i, square, cube);
             }
+            scanner.nextLine();
+            System.out.print("Would you like to continue? [y,n] ");
+            input = scanner.nextLine();
         }
+
+
+//exercise 2 FizzBuzz
+//        for (int i = 1; i <= 100; i++) {
+//
+//            if (i % 3 == 0) {
+//                System.out.print("Fizz");
+//                if (i % 5 == 0) {
+//                    System.out.print("Buzz");
+//                }
+//                System.out.print("\n");
+//            } else if (i % 5 == 0) {
+//                System.out.println("Buzz");
+//            } else {
+//                System.out.println(i);
+//            }
+//        }
 
 //exercise 1c
 //        int i = 0;
