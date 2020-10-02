@@ -1,33 +1,76 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class MethodsExercises {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        boolean repeat;
-
-        int x = 12;
-        int y = 3;
-
-        System.out.printf("x = %d, y = %d\n", x, y);
-        System.out.printf("x + y = %s\n", add(x, y));
-        System.out.printf("x - y = %s\n", subtract(x, y));
-        System.out.printf("x * y = %s\n", multiply(x, y));
-        System.out.printf("x / y = %s\n", divide(x, y));
-        System.out.printf("x %% y = %s\n", modulus(x, y));
-
+//        boolean repeat;
+//
+//        int x = 12;
+//        int y = 3;
+//
+//        System.out.printf("x = %d, y = %d\n", x, y);
+//        System.out.printf("x + y = %s\n", add(x, y));
+//        System.out.printf("x - y = %s\n", subtract(x, y));
+//        System.out.printf("x * y = %s\n", multiply(x, y));
+//        System.out.printf("x / y = %s\n", divide(x, y));
+//        System.out.printf("x %% y = %s\n", modulus(x, y));
+//
+//
+//        do {
+//
+//            int numInput = getInteger(1, 10);
+//            long answer = factorial(numInput);
+//
+//            System.out.printf("%d! = %d\n", numInput, answer);
+//            System.out.print("Would you like to continue? [y/n] ");
+//            String response = input.nextLine();
+//            repeat = response.equalsIgnoreCase("y") || response.equalsIgnoreCase("yes");
+//
+//        } while (repeat);
 
         do {
 
-            int numInput = getInteger(1, 10);
-            long answer = factorial(numInput);
 
-            System.out.printf("%d! = %d\n", numInput, answer);
-            System.out.print("Would you like to continue? [y/n] ");
+            System.out.print("How many sides on each die? ");
+            int sides = input.nextInt();
+            System.out.println("Type ROLL when you're ready to test your luck!");
+            do {
+
+                String response = input.nextLine();
+                if (response.equalsIgnoreCase("roll")) {
+                    break;
+                }
+
+            } while (true);
+
+            rollPairOfDice(6);
+
+            System.out.print("Would you like to roll again? [y/n] ");
             String response = input.nextLine();
-            repeat = response.equalsIgnoreCase("y") || response.equalsIgnoreCase("yes");
+            if (!response.equalsIgnoreCase("y") && !response.equalsIgnoreCase("yes")) {
+                break;
+            }
 
-        } while (repeat);
+        } while (true);
+
+
+    }
+
+    public static void rollPairOfDice(int sides) {
+
+        int rollOne = rollDie(sides);
+        int rollTwo = rollDie(sides);
+
+        System.out.printf("You rolled a pair of %d-sided dice and got: %d %d\n", sides, rollOne, rollTwo);
+
+    }
+
+    public static int rollDie(int sides) {
+        Random rand = new Random(); //instance of random class;
+
+        return rand.nextInt(sides) + 1;
     }
 
     public static long factorial(int n) {
