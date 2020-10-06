@@ -22,7 +22,7 @@ public class InputTest {
             userDouble = test.getDouble(1.5, 9.5);
             System.out.printf("User Input: %f\n", userDouble);
 
-            repeat = test.yesNo();
+            repeat = test.yesNo("Do you want to run the test again?");
 
         } while (repeat) ;
     }

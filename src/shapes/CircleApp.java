@@ -10,15 +10,16 @@ public class CircleApp {
 
         do {
             Input input = new Input();
-            System.out.println("What's the radius?");
 
-            Circle c = new Circle(input.getDouble());
+            Circle c = new Circle(input.getDouble("Enter the radius:"));
 
             c.printInfo();
 
-            repeat = input.yesNo();
+            repeat = input.yesNo("Do you want to enter another radius?");
 
         } while (repeat);
+
+        Circle.totalCirclesCreated();
 
     }
 }

@@ -14,7 +14,15 @@ public class Input {
     }
 
     public boolean yesNo() {
-        System.out.print("Would you like to test again? [y/n] ");
+        System.out.print("Would you like to run again? [y/n] ");
+
+        String input = this.getString();
+
+        return (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes"));
+    }
+
+    public boolean yesNo(String prompt) {
+        System.out.print(prompt + " [y/n] ");
 
         String input = this.getString();
 
@@ -26,13 +34,17 @@ public class Input {
         return this.scanner.nextInt();
     }
 
+    public int getInt(String prompt) {
+        System.out.print(prompt + " ");
+        return this.scanner.nextInt();
+    }
+
     public int getInt(int min, int max) {
 
         int userInput;
 
         do {
-            System.out.printf("(between %d and %d)\n", min, max);
-            userInput = this.getInt();
+            userInput = this.getInt(String.format("Enter an integer between %d and %d:", min, max));
 
             if (userInput < min || userInput > max) {
                 System.out.printf("Invalid input: %d\n", userInput);
@@ -50,13 +62,17 @@ public class Input {
         return this.scanner.nextDouble();
     }
 
+    public double getDouble(String prompt) {
+        System.out.print(prompt + " ");
+        return this.scanner.nextDouble();
+    }
+
     public double getDouble(double min, double max) {
 
         double userInput;
 
         do {
-            System.out.printf("(between %f or %f)\n", min, max);
-            userInput = this.getDouble();
+            userInput = this.getDouble(String.format("Enter a number between %f and %f:", min, max));
 
             if (userInput < min || userInput > max) {
                 System.out.printf("Invalid input: %f\n", userInput);
