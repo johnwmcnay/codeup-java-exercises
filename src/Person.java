@@ -40,4 +40,15 @@ public class Person {
     public void sayHello(){
         System.out.printf("Hello, %s\n!", this.getName());
     }
+
+    public static Person[] addPerson(Person newPerson, Person[] personArray) {
+        Person[] newArray = new Person[personArray.length + 1];
+
+        for (byte i = 0; i < personArray.length; i++) {
+            newArray[i] = personArray[i];
+        }
+        newArray[personArray.length] = newPerson;
+
+        return newArray;
+    }
 }
