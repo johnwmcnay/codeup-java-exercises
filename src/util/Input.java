@@ -57,6 +57,24 @@ public class Input {
         return userInput;
     }
 
+    public int getInt(int min, int max, String prompt) {
+
+        int userInput;
+
+        do {
+            userInput = this.getInt(prompt);
+
+            if (userInput < min || userInput > max) {
+                System.out.printf("Invalid input: %d\n", userInput);
+            } else {
+                break;
+            }
+
+        } while (true);
+
+        return userInput;
+    }
+
     public double getDouble() {
         System.out.print("Enter a number: ");
         return this.scanner.nextDouble();
