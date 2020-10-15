@@ -1,4 +1,5 @@
 package util;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Input {
@@ -10,7 +11,7 @@ public class Input {
     }
 
     public String getString() {
-        return this.scanner.next();
+        return this.scanner.nextLine();
     }
 
     public boolean yesNo() {
@@ -30,13 +31,31 @@ public class Input {
     }
 
     public int getInt() {
-        System.out.print("Enter an integer: ");
-        return this.scanner.nextInt();
+        int value;
+
+        do {
+            value = getInt("Enter an integer:");
+        } while (value < 0);
+
+        return value;
     }
 
     public int getInt(String prompt) {
-        System.out.print(prompt + " ");
-        return this.scanner.nextInt();
+        int value;
+        do {
+            System.out.print(prompt + " ");
+            String userInput = this.getString();
+
+            try {
+                value = Integer.parseInt(userInput);
+            } catch (Exception e) {
+                System.out.println("Invalid Input: " + userInput);
+                value =  -1;
+            }
+
+        } while (value < 0);
+
+        return value;
     }
 
     public int getInt(int min, int max) {
@@ -76,13 +95,33 @@ public class Input {
     }
 
     public double getDouble() {
-        System.out.print("Enter a number: ");
-        return this.scanner.nextDouble();
+
+        double value;
+
+        do {
+            value = getDouble("Enter a number");
+        } while (value < 0);
+
+        return value;
     }
 
     public double getDouble(String prompt) {
-        System.out.print(prompt + " ");
-        return this.scanner.nextDouble();
+        double value;
+        do {
+            System.out.print(prompt + " ");
+            String userInput = this.getString();
+
+
+            try {
+                value = Double.parseDouble(userInput);
+            } catch (Exception e) {
+                System.out.println("Invalid Input: " + userInput);
+                value =  -1;
+            }
+
+        } while (value < 0);
+
+        return value;
     }
 
     public double getDouble(double min, double max) {
