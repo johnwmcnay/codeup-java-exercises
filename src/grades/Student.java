@@ -8,6 +8,7 @@ public class Student {
     private ArrayList<Integer> grades = new ArrayList<>();
 
     public static void main(String[] args) {
+
         Student student1 = new Student("John");
         System.out.println("student1.getName() = " + student1.getName());
 
@@ -23,6 +24,15 @@ public class Student {
     }
 
     public Student(String name, int ...grades) {
+//        NullPointerException
+//        try {
+//            System.out.println("this.name.length() = " + this.name.length());
+//        } catch (NullPointerException e) {
+//            System.out.println("NullPointerException");
+//            System.out.println(e);
+//        }
+
+
         setName(name);
         addGrades(grades);
     }
@@ -52,6 +62,16 @@ public class Student {
     // returns the average of the students grades
     public double getGradeAverage() {
         double sum = 0;
+
+//        IndexOutOfBoundsException
+//        try {
+//            for (int i = 0; i <= this.grades.size(); i++) {
+//                sum += grades.get(i);
+//            }
+//        } catch (IndexOutOfBoundsException e) {
+//            System.out.println("IndexOutOfBoundsException");
+//            System.out.println(e);
+//        }
 
         for (int grade: this.grades) {
             sum += grade;
